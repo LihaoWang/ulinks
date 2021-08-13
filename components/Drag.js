@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { firestore, auth } from "../lib/firebase";
 import { FiEdit } from "react-icons/fi";
-import { useForm } from "react-hook-form";
+import { useForm, useFieldArray, Controller } from "react-hook-form";
+import kebabCase from "lodash.kebabcase";
+import { AiFillPlusCircle, AiFillCloseCircle } from "react-icons/ai";
 export default function Drag({ post }) {
   const [links, updateLinks] = useState(post);
-
+  const [addNew, setAddNew] = useState(false);
   const postRef = firestore.collection("users").doc(auth.currentUser.uid);
 
   useEffect(() => {
@@ -13,7 +15,7 @@ export default function Drag({ post }) {
       links: links,
     });
   }, [links]);
-  async function handleOnDraftEnd(result) {
+  async function handleOnDragEnd(result) {
     if (!result.destination) return;
 
     const items = Array.from(links);
@@ -22,10 +24,14 @@ export default function Drag({ post }) {
 
     updateLinks(items);
   }
+  const handleAddNew = (e) => {
+    e.preventDefault();
+    setAddNew(!addNew);
+  };
 
   return (
     <div style={{ marginTop: "45px" }}>
-      <DragDropContext onDragEnd={handleOnDraftEnd}>
+      <DragDropContext onDragEnd={handleOnDragEnd}>
         <Droppable droppableId="links">
           {(provided) => (
             <div {...provided.droppableProps} ref={provided.innerRef}>
@@ -55,7 +61,55 @@ export default function Drag({ post }) {
           )}
         </Droppable>
       </DragDropContext>
+      <div className="add-new-btn">
+        <button className="text-btn" onClick={handleAddNew}>
+          {!addNew ? (
+            <>
+              <AiFillPlusCircle style={{ marginRight: "5px" }} />
+              Add New Link
+            </>
+          ) : (
+            <>
+              <AiFillCloseCircle style={{ marginRight: "5px" }} />
+              Cancel
+            </>
+          )}
+        </button>
+      </div>
+      {addNew && <AddNewForm updateLinks={updateLinks} />}
     </div>
+  );
+}
+function AddNewForm({ updateLinks }) {
+  const { register, handleSubmit, reset } = useForm({
+    defaultValues: { title: "", url: "" },
+  });
+  const onSubmit = (data) => {
+    const id = encodeURI(kebabCase(data.title));
+    var newItem = data;
+    newItem.id = id;
+    console.log(newItem);
+    updateLinks((prev) => {
+      var newState = [...prev];
+      newState.push(newItem);
+      return newState;
+    });
+    reset({ defaultValues: { title: "", url: "" } });
+  };
+
+  return (
+    <form className="form-wrapper" onSubmit={handleSubmit(onSubmit)}>
+      {/* register your input into the hook by invoking the "register" function */}
+      <p className="form-title">Title</p>
+      <input className="form-input" defaultValue="" {...register("title")} />
+      <p className="form-title">URL</p>
+      <input className="form-input" defaultValue="" {...register("url")} />
+
+      <button className="submit-btn" type="submit">
+        {" "}
+        Add
+      </button>
+    </form>
   );
 }
 function PostItem({ item, index, updateLinks, links }) {
@@ -90,7 +144,7 @@ function PostItem({ item, index, updateLinks, links }) {
     </>
   );
 }
-function EditForm({ defaultValues, index, updateLinks, links }) {
+function EditForm({ defaultValues, index, updateLinks }) {
   const { register, errors, handleSubmit, formState, reset, watch, getValues } =
     useForm({
       defaultValues,
@@ -102,6 +156,13 @@ function EditForm({ defaultValues, index, updateLinks, links }) {
       var newLinks = [...prev];
       newLinks[index].title = values.title;
       newLinks[index].url = values.url;
+      return newLinks;
+    });
+  };
+  const deleteLink = () => {
+    updateLinks((prev) => {
+      var newLinks = [...prev];
+      newLinks.splice(index, 1);
       return newLinks;
     });
   };
@@ -118,7 +179,9 @@ function EditForm({ defaultValues, index, updateLinks, links }) {
           Save
         </button>
 
-        <button className="text-btn">Delete</button>
+        <button onClick={deleteLink} className="text-btn">
+          Delete
+        </button>
       </div>
     </form>
   );

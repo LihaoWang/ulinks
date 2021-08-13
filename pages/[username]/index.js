@@ -19,28 +19,28 @@ export async function getServerSideProps({ query }) {
   }
 
   let user = null;
-  let posts = null;
+  // let posts = null;
 
   if (userDoc) {
     user = userDoc.data();
-    const postsQuery = userDoc.ref.collection("links");
+    // const postsQuery = userDoc.ref.collection("links");
     // .where("published", "==", true)
     // .limit(5);
 
-    posts = (await postsQuery.get()).docs.map(postToJSON);
+    // posts = (await postsQuery.get()).docs.map(postToJSON);
   }
 
   return {
-    props: { user, posts },
+    props: { user },
   };
 }
 
-export default function UserProfilePage({ user, posts }) {
+export default function UserProfilePage({ user }) {
   return (
     <main className="user-page">
       <UserProfile user={user} />
       <div className="links-feed-clean">
-        <LinksFeedClean posts={posts} />
+        <LinksFeedClean posts={user.links} />
       </div>
       <div className="footer">
         <a className="footer-text" href="#">

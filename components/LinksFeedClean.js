@@ -3,9 +3,7 @@ import { FiArrowRightCircle } from "react-icons/fi";
 import { IoIosArrowDropright } from "react-icons/io";
 export default function LinksFeedClean({ posts, admin }) {
   return posts
-    ? posts.map((post) => (
-        <PostItem post={post} key={post.slug} admin={admin} />
-      ))
+    ? posts.map((post) => <PostItem post={post} key={post.id} admin={admin} />)
     : null;
 }
 function PostItem({ post, admin = false }) {

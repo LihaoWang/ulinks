@@ -5,7 +5,7 @@ import Drag from "../../components/Drag";
 import ImageUploader from "../../components/ImageUploader";
 // import ColorPicker from "../../components/ColorPicker";
 
-import { BlockPicker, TwitterPicker } from "react-color";
+import { TwitterPicker } from "react-color";
 import { UserContext } from "../../lib/context";
 import { firestore, auth, serverTimestamp } from "../../lib/firebase";
 
@@ -22,18 +22,12 @@ import toast from "react-hot-toast";
 import { AiFillPlusCircle, AiFillCloseCircle } from "react-icons/ai";
 
 export default function AdminPostsPage() {
-  const [addNew, setAddNew] = useState(false);
-  const handleAddNew = (e) => {
-    e.preventDefault();
-    setAddNew(!addNew);
-  };
-
   return (
     <main className="admin-page">
       <AuthCheck>
         <h1>Dashboard</h1>
         <BioSection />
-        <div className="add-new-btn">
+        {/* <div className="add-new-btn">
           <button className="text-btn" onClick={handleAddNew}>
             {!addNew ? (
               <>
@@ -48,7 +42,7 @@ export default function AdminPostsPage() {
             )}
           </button>
         </div>
-        {addNew && <CreateNewPost />}
+        {addNew && <CreateNewPost />} */}
 
         {/* <LinksList /> */}
       </AuthCheck>
@@ -122,7 +116,7 @@ function BioForm({ defaultValues, postRef }) {
         <div className="change-bg">
           <p className="form-title">Background Color</p>
 
-          <div style={{ marginBottom: "20px" }}>
+          <div style={{ marginBottom: "10px" }}>
             <TwitterPicker
               color={newColor}
               onChangeComplete={handleChangeComplete}
