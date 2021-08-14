@@ -15,14 +15,22 @@ export default function UserProfile({ user }) {
         style={{ backgroundColor: user.bgColor.hex }}
       ></div>
       <div className="user-bio-section">
-        <Image
-          width={180}
-          height={180}
-          src={user.photoURL}
-          className="profile-pic"
-          alt="avatar"
-          layout="fixed"
-        />
+        <div
+          style={{
+            position: "relative",
+            width: "200px",
+            height: "200px",
+            maxHeight: "200px",
+            maxWidth: "200px",
+          }}
+        >
+          <Image
+            src={user.photoURL}
+            className="profile-pic"
+            alt="avatar"
+            layout="fill"
+          />
+        </div>
         <div className="social-icons-row">
           <a className="social-icon" href="#">
             <IoLogoTiktok />
