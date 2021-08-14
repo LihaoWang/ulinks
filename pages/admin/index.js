@@ -79,7 +79,7 @@ function Avatar({ post }) {
       style={{ backgroundColor: post.bgColor.hex }}
     >
       <Image
-        width="120px"
+        width={120}
         src={post.photoURL}
         className="profile-pic"
         alt="avatar"
