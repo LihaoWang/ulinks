@@ -1,6 +1,6 @@
 /* eslint-disable no-alert */
 import { auth, googleAuthProvider } from "../lib/firebase";
-import { useContext, useState, useEffect, useCallback } from "react";
+import { useContext, useState, useEffect, useCallback, useMemo } from "react";
 import { UserContext } from "../lib/context";
 import { firestore } from "../lib/firebase";
 import debounce from "lodash.debounce";
@@ -85,7 +85,7 @@ function UsernameForm() {
 
   // Hit the database for username match after each debounced change
   // useCallback is required for debounce to work
-  const checkUsername = useCallback(
+  const checkUsername = useMemo(
     debounce(async (username) => {
       if (username.length >= 3) {
         const ref = firestore.doc(`usernames/${username}`);
