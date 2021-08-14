@@ -76,11 +76,16 @@ function Avatar({ post }) {
   return (
     <div
       className="avatar-wrapper"
-      style={{ backgroundColor: post.bgColor.hex }}
+      style={{
+        backgroundColor: post.bgColor.hex,
+        position: "relative",
+        width: "120px",
+        height: "120px",
+        maxHeight: "120px",
+        maxWidth: "120px",
+      }}
     >
       <Image
-        width={120}
-        height={120}
         src={post.photoURL}
         className="profile-pic"
         alt="avatar"
