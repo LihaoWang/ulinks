@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { auth, storage, STATE_CHANGED, firestore } from "../lib/firebase";
-import Loader from "./Loader";
 
 // Uploads images to Firebase Storage
 export default function ImageUploader() {
@@ -53,7 +52,6 @@ export default function ImageUploader() {
 
   return (
     <div>
-      <Loader show={uploading} />
       {uploading && <h3>{progress}%</h3>}
 
       {!uploading && (
