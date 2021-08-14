@@ -80,15 +80,11 @@ function Avatar({ post }) {
         backgroundColor: post.bgColor.hex,
       }}
     >
-      <Image
+      <img
         src={post.photoURL}
         className="profile-pic"
         alt="avatar"
-        width={120}
-        height={120}
-        maxWidth={120}
-        maxHeight={120}
-        unoptimized={true}
+        width="120px"
       />
       <ImageUploader />
     </div>

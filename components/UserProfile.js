@@ -15,15 +15,11 @@ export default function UserProfile({ user }) {
         style={{ backgroundColor: user.bgColor.hex }}
       ></div>
       <div className="user-bio-section">
-        <Image
+        <img
           src={user.photoURL}
+          width="180px"
           className="profile-pic"
           alt="avatar"
-          width={180}
-          height={180}
-          maxWidth={180}
-          maxHeight={180}
-          unoptimized={true}
         />
 
         <div className="social-icons-row">

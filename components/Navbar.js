@@ -19,7 +19,7 @@ export default function NavBar({}) {
             </Link>
             <div className="nav-pic">
               <Link href={`/${username}`} passHref>
-                <Image
+                <img
                   className="profile-pic"
                   width="60px"
                   src={user?.photoURL}
