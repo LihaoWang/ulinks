@@ -16,8 +16,8 @@ export default function UserProfile({ user }) {
       ></div>
       <div className="user-bio-section">
         <Image
-          width={120}
-          height={120}
+          width={180}
+          height={180}
           src={user.photoURL}
           className="profile-pic"
           alt="avatar"

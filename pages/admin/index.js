@@ -84,7 +84,7 @@ function Avatar({ post }) {
         src={post.photoURL}
         className="profile-pic"
         alt="avatar"
-        layout="responsive"
+        layout="fixed"
       />
       <ImageUploader />
     </div>
