@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 import { auth, googleAuthProvider } from "../lib/firebase";
 import { useContext, useState, useEffect, useCallback } from "react";
 import { UserContext } from "../lib/context";
@@ -94,7 +95,7 @@ function UsernameForm() {
         setLoading(false);
       }
     }, 500),
-    // eslint-disable-next-line
+
     []
   );
   return (
