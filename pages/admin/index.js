@@ -4,7 +4,7 @@ import LinksFeed from "../../components/LinksFeed";
 import Drag from "../../components/Drag";
 import ImageUploader from "../../components/ImageUploader";
 // import ColorPicker from "../../components/ColorPicker";
-
+import Image from "next/image";
 import { TwitterPicker } from "react-color";
 import { UserContext } from "../../lib/context";
 import { firestore, auth, serverTimestamp } from "../../lib/firebase";
@@ -78,7 +78,7 @@ function Avatar({ post }) {
       className="avatar-wrapper"
       style={{ backgroundColor: post.bgColor.hex }}
     >
-      <img width="120px" src={post.photoURL} className="profile-pic" />
+      <Image width="120px" src={post.photoURL} className="profile-pic" />
       <ImageUploader />
     </div>
   );

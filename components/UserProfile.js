@@ -5,6 +5,7 @@ import {
   IoLogoWechat,
   IoLogoTiktok,
 } from "react-icons/io5";
+import Image from "next/image";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 export default function UserProfile({ user }) {
   return (
@@ -14,7 +15,7 @@ export default function UserProfile({ user }) {
         style={{ backgroundColor: user.bgColor.hex }}
       ></div>
       <div className="user-bio-section">
-        <img width="180px" src={user.photoURL} className="profile-pic" />
+        <Image width="180px" src={user.photoURL} className="profile-pic" />
         <div className="social-icons-row">
           <a className="social-icon" href="#">
             <IoLogoTiktok />
