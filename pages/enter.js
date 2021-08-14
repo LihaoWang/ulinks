@@ -1,4 +1,4 @@
-/* eslint-disable no-alert */
+/* eslint-disable  */
 import { auth, googleAuthProvider } from "../lib/firebase";
 import { useContext, useState, useEffect, useCallback, useMemo } from "react";
 import { UserContext } from "../lib/context";
@@ -80,12 +80,12 @@ function UsernameForm() {
   };
   useEffect(() => {
     checkUsername(formValue);
-    // eslint-disable-next-line
+    // eslint-disable-line
   }, [formValue]);
 
   // Hit the database for username match after each debounced change
   // useCallback is required for debounce to work
-  const checkUsername = useMemo(
+  const checkUsername = useCallback(
     debounce(async (username) => {
       if (username.length >= 3) {
         const ref = firestore.doc(`usernames/${username}`);
@@ -97,7 +97,7 @@ function UsernameForm() {
     }, 500),
 
     []
-  );
+  ); // eslint-disable-line react-hooks/exhaustive-deps
   return (
     !username && (
       <section>
