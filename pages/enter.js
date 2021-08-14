@@ -94,6 +94,7 @@ function UsernameForm() {
         setLoading(false);
       }
     }, 500),
+    // eslint-disable-next-line
     []
   );
   return (
