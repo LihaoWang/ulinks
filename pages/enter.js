@@ -79,6 +79,7 @@ function UsernameForm() {
   };
   useEffect(() => {
     checkUsername(formValue);
+    // eslint-disable-next-line
   }, [formValue]);
 
   // Hit the database for username match after each debounced change

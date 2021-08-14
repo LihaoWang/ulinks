@@ -78,7 +78,12 @@ function Avatar({ post }) {
       className="avatar-wrapper"
       style={{ backgroundColor: post.bgColor.hex }}
     >
-      <Image width="120px" src={post.photoURL} className="profile-pic" />
+      <Image
+        width="120px"
+        src={post.photoURL}
+        className="profile-pic"
+        alt="avatar"
+      />
       <ImageUploader />
     </div>
   );

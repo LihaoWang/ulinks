@@ -14,6 +14,7 @@ export default function Drag({ post }) {
     postRef.update({
       links: links,
     });
+    // eslint-disable-next-line
   }, [links]);
   async function handleOnDragEnd(result) {
     if (!result.destination) return;

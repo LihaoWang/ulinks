@@ -7,22 +7,23 @@ export default function NavBar({}) {
   return (
     <nav className="bg-blue-200 h-auto px-5">
       <div className="navbar">
-        <Link href="/">
+        <Link href="/" passHref>
           <div className="nav-logo">ulinks</div>
         </Link>
 
         {username && (
           <div className="nav-buttons">
             {/* <div className="nav-button">Sign Out</div> */}
-            <Link href="/admin">
+            <Link href="/admin" passHref>
               <div className="nav-button">Dashboard</div>
             </Link>
             <div className="nav-pic">
-              <Link href={`/${username}`}>
+              <Link href={`/${username}`} passHref>
                 <Image
                   className="profile-pic"
                   width="60px"
                   src={user?.photoURL}
+                  alt="avatar"
                 />
               </Link>
             </div>
@@ -31,7 +32,7 @@ export default function NavBar({}) {
 
         {!username && (
           <div className="nav-buttons">
-            <Link href="/enter">
+            <Link href="/enter" passHref>
               <div className="nav-button">Log in</div>
             </Link>
           </div>
