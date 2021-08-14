@@ -16,10 +16,12 @@ export default function UserProfile({ user }) {
       ></div>
       <div className="user-bio-section">
         <Image
-          width="180px"
+          width={120}
+          height={120}
           src={user.photoURL}
           className="profile-pic"
           alt="avatar"
+          layout="fixed"
         />
         <div className="social-icons-row">
           <a className="social-icon" href="#">
