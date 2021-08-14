@@ -30,7 +30,23 @@ export default function Drag({ post }) {
   };
 
   return (
-    <div style={{ marginTop: "45px" }}>
+    <div style={{ marginTop: "20px" }}>
+      <div className="add-new-btn">
+        <button className="text-btn" onClick={handleAddNew}>
+          {!addNew ? (
+            <>
+              <AiFillPlusCircle style={{ marginRight: "5px" }} />
+              Add New Link
+            </>
+          ) : (
+            <>
+              <AiFillCloseCircle style={{ marginRight: "5px" }} />
+              Cancel
+            </>
+          )}
+        </button>
+      </div>
+      {addNew && <AddNewForm updateLinks={updateLinks} />}
       <DragDropContext onDragEnd={handleOnDragEnd}>
         <Droppable droppableId="links">
           {(provided) => (
@@ -61,22 +77,6 @@ export default function Drag({ post }) {
           )}
         </Droppable>
       </DragDropContext>
-      <div className="add-new-btn">
-        <button className="text-btn" onClick={handleAddNew}>
-          {!addNew ? (
-            <>
-              <AiFillPlusCircle style={{ marginRight: "5px" }} />
-              Add New Link
-            </>
-          ) : (
-            <>
-              <AiFillCloseCircle style={{ marginRight: "5px" }} />
-              Cancel
-            </>
-          )}
-        </button>
-      </div>
-      {addNew && <AddNewForm updateLinks={updateLinks} />}
     </div>
   );
 }
@@ -98,7 +98,11 @@ function AddNewForm({ updateLinks }) {
   };
 
   return (
-    <form className="form-wrapper" onSubmit={handleSubmit(onSubmit)}>
+    <form
+      className="form-wrapper"
+      onSubmit={handleSubmit(onSubmit)}
+      style={{ marginBottom: "25px" }}
+    >
       {/* register your input into the hook by invoking the "register" function */}
       <p className="form-title">Title</p>
       <input className="form-input" defaultValue="" {...register("title")} />
