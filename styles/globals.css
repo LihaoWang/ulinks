@@ -38,7 +38,9 @@ body {
 }
 .links-feed-clean {
   padding-bottom: 150px;
+  margin: auto;
 }
+
 a {
   text-decoration: none;
   color: var(--color-main);
@@ -80,6 +82,7 @@ textarea:focus {
   cursor: pointer;
   margin-top: 15px;
   border-radius: 5px;
+  box-shadow: 0px 14px 30px -5px rgb(0 0 0 / 13%);
 }
 .submit-btn:hover,
 .upload-btn:hover {
@@ -108,11 +111,13 @@ textarea:focus {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  text-decoration: none;
-  list-style: none;
-  height: 100px;
 
-  padding: 10px 30px;
+  height: 80px;
+
+  padding: 10px 0px;
+  width: 85%;
+  max-width: 1500px;
+  margin: auto;
 }
 .nav-logo {
   display: flex;
@@ -128,31 +133,32 @@ textarea:focus {
   align-items: center;
 }
 .nav-button {
-  padding: 12px 14px;
-  margin-right: 20px;
+  /* padding: 12px 16px;
+  
   border-radius: 5px;
-  border: 2px solid var(--color-main);
+  border: 2px solid var(--color-main); */
 
   cursor: pointer;
-  color: white;
-  font-size: 18px;
-  font-weight: 500;
-  background-color: var(--color-main);
+  color: var(--color-main);
+  font-size: 20px;
+  font-weight: 600;
+  background-color: transparent;
 }
 .nav-button:hover {
-  background-color: var(--color-main-shade);
+  /* background-color: var(--color-main-shade);
   color: white;
-  border-color: var(--color-main-shade);
+  border-color: var(--color-main-shade); */
+  color: var(--gray-400);
 }
 .nav-button-2 {
   padding: 5px;
   margin-right: 20px;
   border-radius: 100px;
-  border: 2px solid grey;
+  border: 2px solid var(--color-main);
 
   cursor: pointer;
-  color: grey;
-  font-size: 30px;
+  color: var(--color-main);
+  font-size: 25px;
 
   background-color: transparent;
 
@@ -162,14 +168,77 @@ textarea:focus {
 }
 .nav-button-2:hover {
   color: var(--gray-400);
+  border-color: var(--gray-400);
 }
 .nav-pic {
   cursor: pointer;
 }
 
+/*index*/
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* background-color: var(--gray-200); */
+}
+.hero {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 85%;
+  max-width: 1500px;
+  padding: 20px 0px;
+}
+.hero > * {
+  flex-basis: 100%;
+}
+.hero > * + * {
+  margin-left: 2em;
+}
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.hero-title {
+  font-size: 35px;
+  margin-bottom: 0px;
+  font-weight: 700;
+}
+.hero-subtitle {
+  color: var(--gray-400);
+  font-size: 20px;
+  font-weight: 300;
+}
+.address-bar {
+  font-size: 20px;
+  box-shadow: 0px 14px 30px -5px rgb(0 0 0 / 13%);
+  padding: 5px 30px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+@media all and (max-width: 780px) {
+  .hero {
+    flex-direction: column;
+  }
+  .hero > * + * {
+    margin-left: 0;
+  }
+}
+
+img {
+  max-width: 100%;
+}
+
 /* user page*/
+
 .user-profile {
   margin-bottom: -50px;
+  /* margin: auto; */
 }
 .user-bg {
   height: 200px;
@@ -190,7 +259,7 @@ textarea:focus {
   font-size: 22px;
   font-style: italic;
   text-align: center;
-  width: 500px;
+  width: 50%;
 }
 .user-location {
   margin-top: 5px;
@@ -210,6 +279,42 @@ textarea:focus {
 .social-icon:hover {
   color: black;
 }
+@media all and (max-width: 780px) {
+  .user-intro {
+    font-size: 18px;
+    width: 100%;
+  }
+  .user-bio-section {
+    width: 90%;
+    margin: auto;
+  }
+  .user-bg {
+    height: 150px;
+  }
+  .profile-pic {
+    width: 150px;
+  }
+  .user-location {
+    font-size: 18px;
+  }
+  .link-icon {
+    display: none;
+  }
+  .feed-title {
+    font-size: 18px !important;
+  }
+  .feed-url {
+    font-size: 12px !important;
+  }
+  .title-url-wrapper {
+    max-width: 50%;
+    align-items: flex-start !important;
+    display: block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+}
 /* link card clean*/
 
 .arrow-invisible {
@@ -220,7 +325,8 @@ textarea:focus {
   justify-content: space-between;
   align-items: center;
   background-color: white;
-  width: 75%;
+  width: 85%;
+  max-width: 1000px;
   color: black;
   margin: auto;
   padding: 25px 25px;

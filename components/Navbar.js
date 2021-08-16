@@ -7,7 +7,7 @@ import { RiUserSettingsFill, RiSettings5Fill } from "react-icons/ri";
 export default function NavBar({}) {
   const { user, username } = useContext(UserContext);
   return (
-    <nav className="bg-blue-200 h-auto px-5">
+    <nav>
       <div className="navbar">
         <Link href="/" passHref>
           <div className="nav-logo">ulinks</div>

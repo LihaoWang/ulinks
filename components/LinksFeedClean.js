@@ -2,9 +2,15 @@ import { AiOutlineLink, AiOutlineArrowRight } from "react-icons/ai";
 import { FiArrowRightCircle } from "react-icons/fi";
 import { IoIosArrowDropright } from "react-icons/io";
 export default function LinksFeedClean({ posts, admin }) {
-  return posts
-    ? posts.map((post) => <PostItem post={post} key={post.id} admin={admin} />)
-    : null;
+  return (
+    <div className="links-feed-clean">
+      {posts
+        ? posts.map((post) => (
+            <PostItem post={post} key={post.id} admin={admin} />
+          ))
+        : null}
+    </div>
+  );
 }
 function PostItem({ post, admin = false }) {
   return (

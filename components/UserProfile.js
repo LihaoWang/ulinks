@@ -22,7 +22,7 @@ export default function UserProfile({ user }) {
           alt="avatar"
         />
 
-        <div className="social-icons-row">
+        {/* <div className="social-icons-row">
           <a className="social-icon" href="#">
             <IoLogoTiktok />
           </a>
@@ -38,7 +38,7 @@ export default function UserProfile({ user }) {
           <a className="social-icon" href="#">
             <IoLogoWechat />
           </a>
-        </div>
+        </div> */}
         <h1>{user.name}</h1>
         <p className="user-intro">{user.intro}</p>
         <p className="user-location">
