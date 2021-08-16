@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
 import { AiOutlineGoogle, AiFillEyeInvisible } from "react-icons/ai";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import router, { useRouter } from "next/router";
 export default function Enter(props) {
   const { user, username } = useContext(UserContext);
 
@@ -39,7 +39,6 @@ function SignUpForm() {
   const router = useRouter();
   const signInWithGoogle = async () => {
     await auth.signInWithPopup(googleAuthProvider);
-    router.push("/admin");
   };
   const signInAnonymously = async () => {
     await auth.signInAnonymously();
@@ -56,7 +55,6 @@ function SignUpForm() {
     try {
       setError("");
       await signUp(data.email, data.password);
-      router.push("/admin");
     } catch {
       setError("Sign up failed");
     }

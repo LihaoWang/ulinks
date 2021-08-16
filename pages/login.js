@@ -37,7 +37,6 @@ function SignInForm() {
   const [error, setError] = useState("");
   const signInWithGoogle = async () => {
     await auth.signInWithPopup(googleAuthProvider);
-    router.push("/admin");
   };
   const signInAnonymously = async () => {
     await auth.signInAnonymously();
