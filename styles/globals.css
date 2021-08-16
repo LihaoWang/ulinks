@@ -41,6 +41,7 @@ body {
 }
 a {
   text-decoration: none;
+  color: var(--color-main);
 }
 h2 {
   font-weight: 400;
@@ -96,6 +97,10 @@ textarea:focus {
   border-radius: 5px;
   cursor: pointer;
 }
+.text-color-main {
+  color: var(--color-main) !important;
+  cursor: pointer;
+}
 
 /* nav bar */
 .navbar {
@@ -123,24 +128,40 @@ textarea:focus {
   align-items: center;
 }
 .nav-button {
-  padding: 20px;
-  margin-right: 20px;
-  border-radius: 7px;
-  border-style: none;
-  background-color: var(--primary-color);
-  cursor: pointer;
-  color: white;
-}
-.nav-button:hover {
-  background-color: var(--primary-color-shade);
-}
-.nav-button-outlined {
-  padding: 18px;
+  padding: 12px 14px;
   margin-right: 20px;
   border-radius: 5px;
-  border: solid 2px grey;
+  border: 2px solid var(--color-main);
+
   cursor: pointer;
-  color: black;
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  background-color: var(--color-main);
+}
+.nav-button:hover {
+  background-color: var(--color-main-shade);
+  color: white;
+  border-color: var(--color-main-shade);
+}
+.nav-button-2 {
+  padding: 5px;
+  margin-right: 20px;
+  border-radius: 100px;
+  border: 2px solid grey;
+
+  cursor: pointer;
+  color: grey;
+  font-size: 30px;
+
+  background-color: transparent;
+
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.nav-button-2:hover {
+  color: var(--gray-400);
 }
 .nav-pic {
   cursor: pointer;
@@ -287,7 +308,7 @@ input[type="file"] {
 }
 .form-input {
   height: 50px;
-  width: 500px;
+  /* width: 500px; */
   font-size: 20px;
   border: none;
   margin-bottom: 10px;
@@ -431,6 +452,43 @@ input[type="file"] {
 }
 .footer-logo:hover {
   color: var(--primary-color-shade);
+}
+/*sign up page*/
+.sign-up-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 50%;
+}
+.btn-google {
+  border: none;
+  padding: 20px 20px;
+  background-color: var(--gray-300);
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  cursor: pointer;
+  margin-top: 40px;
+}
+
+.btn-google:hover {
+  background-color: var(--gray-400);
+}
+.bg-color-black {
+  background-color: black;
+}
+.bg-color-black:hover {
+  background-color: rgb(82, 82, 82);
+}
+.error {
+  font-size: 18px;
+
+  color: #df3b3b;
+  margin-bottom: 15px;
 }
 
 /*

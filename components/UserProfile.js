@@ -5,7 +5,7 @@ import {
   IoLogoWechat,
   IoLogoTiktok,
 } from "react-icons/io5";
-import Image from "next/image";
+
 import { HiOutlineLocationMarker } from "react-icons/hi";
 export default function UserProfile({ user }) {
   return (

@@ -22,11 +22,24 @@ import toast from "react-hot-toast";
 import { AiFillPlusCircle, AiFillCloseCircle } from "react-icons/ai";
 
 export default function AdminPostsPage() {
+  const router = useRouter();
+  async function signOut(e) {
+    e.preventDefault();
+    router.push("/");
+    await auth.signOut();
+  }
   return (
     <main className="admin-page">
       <AuthCheck>
         <h1>Dashboard</h1>
         <BioSection />
+        <button
+          style={{ alignSelf: "center" }}
+          className="submit-btn"
+          onClick={signOut}
+        >
+          Sign Out
+        </button>
         {/* <div className="add-new-btn">
           <button className="text-btn" onClick={handleAddNew}>
             {!addNew ? (
@@ -43,7 +56,6 @@ export default function AdminPostsPage() {
           </button>
         </div>
         {addNew && <CreateNewPost />} */}
-
         {/* <LinksList /> */}
       </AuthCheck>
     </main>
@@ -51,6 +63,7 @@ export default function AdminPostsPage() {
 }
 function BioSection() {
   const postRef = firestore.collection("users").doc(auth.currentUser.uid);
+
   const [post] = useDocumentData(postRef);
 
   return (
@@ -66,6 +79,7 @@ function BioSection() {
             <h1 style={{ marginTop: "50px" }}>Manage your Links</h1>
 
             <Drag post={post.links} />
+            <div></div>
           </section>
         </>
       )}

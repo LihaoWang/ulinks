@@ -6,9 +6,8 @@ import { firestore } from "../lib/firebase";
 import debounce from "lodash.debounce";
 import { useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
-import { AiOutlineGoogle, AiFillEyeInvisible } from "react-icons/ai";
+import { AiFillEyeInvisible } from "react-icons/ai";
 import Link from "next/link";
-import { useRouter } from "next/router";
 export default function Enter(props) {
   const { user, username } = useContext(UserContext);
 
@@ -28,15 +27,14 @@ export default function Enter(props) {
           </div>
         )
       ) : (
-        <SignUpForm />
+        <SignInForm />
       )}
     </main>
   );
 }
 
-function SignUpForm() {
+function SignInForm() {
   const [error, setError] = useState("");
-  const router = useRouter();
   const signInWithGoogle = async () => {
     await auth.signInWithPopup(googleAuthProvider);
     router.push("/admin");
@@ -50,31 +48,24 @@ function SignUpForm() {
     formState: { errors },
   } = useForm();
   async function onSubmit(data) {
-    if (data.password !== data.passwordConfirm) {
-      return setError("Password doesn't match");
-    }
     try {
       setError("");
-      await signUp(data.email, data.password);
-      router.push("/admin");
+      await signIn(data.email, data.password);
     } catch {
-      setError("Sign up failed");
+      setError("Sign in failed");
     }
   }
-  function signUp(email, password) {
-    return auth.createUserWithEmailAndPassword(email, password);
+  function signIn(email, password) {
+    return auth.signInWithEmailAndPassword(email, password);
   }
-
   return (
     <div className="sign-up-wrapper">
-      <h1 style={{ alignSelf: "center" }}>Create an account</h1>
-
+      <h1 style={{ alignSelf: "center" }}>Sign in</h1>
       <form onSubmit={handleSubmit(onSubmit)} className="form-wrapper">
         <p className="form-title">Email</p>
         <input
-          id="email"
           {...register("email", {
-            required: "Email is required",
+            required: "Please enter your email",
             pattern: {
               value: /\S+@\S+\.\S+/,
               message: "Entered value does not match email format",
@@ -83,12 +74,11 @@ function SignUpForm() {
           className="form-input"
         />
         {errors.email && <span className="error">{errors.email.message}</span>}
-
         <p className="form-title">Password</p>
         <input
           type="password"
           {...register("password", {
-            required: "Password is required",
+            required: "Please enter password",
             minLength: {
               value: 5,
               message: "Minimum password length is 5",
@@ -99,24 +89,15 @@ function SignUpForm() {
         {errors.password && (
           <span className="error">{errors.password.message}</span>
         )}
-
-        <p className="form-title">Confirm Password</p>
-        <input
-          type="password"
-          {...register("passwordConfirm", { required: true })}
-          className="form-input"
-        />
         {error && <span className="error">{error}</span>}
-
         <button className="submit-btn" type="submit">
-          Sign up
+          Sign in
         </button>
       </form>
       <button className="btn-google" onClick={signInWithGoogle}>
         <FcGoogle style={{ marginRight: "10px", fontSize: "22px" }} />
         Sign in with Google
       </button>
-
       <button
         className="btn-google bg-color-black"
         onClick={signInAnonymously}
@@ -130,11 +111,10 @@ function SignUpForm() {
         />
         Sign in Anonymously
       </button>
-
-      <p style={{ alignSelf: "center", marginTop: "30px" }}>
-        Already have an account?{" "}
-        <Link href={"/login"} passHref>
-          Sign in
+      <p style={{ alignSelf: "center", marginTop: "30px", color: "black" }}>
+        Not registered yet?{" "}
+        <Link href={"/enter"} passHref>
+          Create an account
         </Link>
       </p>
     </div>

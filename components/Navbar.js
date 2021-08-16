@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { useContext } from "react";
 import { UserContext } from "../lib/context";
-import Image from "next/image";
+
+import { AiOutlineHome } from "react-icons/ai";
+import { RiUserSettingsFill, RiSettings5Fill } from "react-icons/ri";
 export default function NavBar({}) {
   const { user, username } = useContext(UserContext);
   return (
@@ -15,25 +17,20 @@ export default function NavBar({}) {
           <div className="nav-buttons">
             {/* <div className="nav-button">Sign Out</div> */}
             <Link href="/admin" passHref>
-              <div className="nav-button">Dashboard</div>
+              <div className="nav-button-2">
+                <RiSettings5Fill />
+              </div>
             </Link>
-            <div className="nav-pic">
-              <Link href={`/${username}`} passHref>
-                <img
-                  className="profile-pic"
-                  width="60px"
-                  src={user?.photoURL}
-                  alt="avatar"
-                />
-              </Link>
-            </div>
+            <Link href={`/${username}`} passHref>
+              <div className="nav-button">My Page</div>
+            </Link>
           </div>
         )}
 
         {!username && (
           <div className="nav-buttons">
             <Link href="/enter" passHref>
-              <div className="nav-button">Log in</div>
+              <div className="nav-button">Sign up</div>
             </Link>
           </div>
         )}
