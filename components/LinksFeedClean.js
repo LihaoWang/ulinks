@@ -9,7 +9,7 @@ export default function LinksFeedClean({ posts, admin }) {
 function PostItem({ post, admin = false }) {
   return (
     <div>
-      <a href="#">
+      <a href={post.url}>
         <div className="card">
           {/* <img className="arrow-invisible" width="25px" src="arrow.svg" /> */}
           <AiOutlineLink className="link-icon" style={{ fontSize: "30px" }} />

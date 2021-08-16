@@ -5,6 +5,7 @@ import { FiEdit } from "react-icons/fi";
 import { useForm, useFieldArray, Controller } from "react-hook-form";
 import kebabCase from "lodash.kebabcase";
 import { AiFillPlusCircle, AiFillCloseCircle } from "react-icons/ai";
+import normalizeUrl from "normalize-url";
 export default function Drag({ post }) {
   const [links, updateLinks] = useState(post);
   const [addNew, setAddNew] = useState(false);
@@ -89,6 +90,7 @@ function AddNewForm({ updateLinks }) {
     const id = encodeURI(kebabCase(data.title));
     var newItem = data;
     newItem.id = id;
+    newItem.url = normalizeUrl(newItem.url, { forceHttps: true });
     console.log(newItem);
     updateLinks((prev) => {
       var newState = [...prev];
@@ -160,7 +162,7 @@ function EditForm({ defaultValues, index, updateLinks }) {
     updateLinks((prev) => {
       var newLinks = [...prev];
       newLinks[index].title = values.title;
-      newLinks[index].url = values.url;
+      newLinks[index].url = normalizeUrl(values.url, { forceHttps: true });
       return newLinks;
     });
   };

@@ -12,6 +12,7 @@ import { firestore, auth, serverTimestamp } from "../../lib/firebase";
 import { useContext, useState } from "react";
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
+
 import {
   useCollection,
   useDocumentData,
@@ -25,7 +26,7 @@ export default function AdminPostsPage() {
   const router = useRouter();
   async function signOut(e) {
     e.preventDefault();
-    router.push("/");
+    await router.push("/");
     await auth.signOut();
   }
   return (

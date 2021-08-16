@@ -325,6 +325,7 @@ input[type="file"] {
   font-family: "Inter", sans-serif;
   background-color: var(--gray-200);
   border-radius: 5px;
+  padding-left: 10px;
 }
 .form-title {
   font-size: 15px;

@@ -18,7 +18,8 @@ export default function Enter(props) {
         !username ? (
           <UsernameForm />
         ) : (
-          <div style={{ margin: "auto", width: "50%" }}>
+          <div className="sign-up-wrapper" style={{ alignItems: "center" }}>
+            <img width="50%" src="login.svg"></img>
             <h2 style={{ alignSelf: "center" }}>
               You've logged in successfully. Go to{" "}
               <Link href="/admin" passHref>
