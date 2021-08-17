@@ -6,7 +6,7 @@ function Success() {
       <div className="success-page">
         <img className="success-img" src="login.svg" alt="success"></img>
         <h2 style={{ textAlign: "center" }}>
-          You've logged in successfully. Go to{" "}
+          You&apos;ve logged in successfully. Go to{" "}
           <Link href="/admin" passHref>
             dashboard
           </Link>
