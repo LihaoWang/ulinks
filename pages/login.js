@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
 import { AiFillEyeInvisible } from "react-icons/ai";
 import Link from "next/link";
-import Success from "../components/success";
+import Success from "../components/Success";
 export default function Enter(props) {
   const { user, username } = useContext(UserContext);
 

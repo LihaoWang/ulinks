@@ -9,7 +9,7 @@ import { FcGoogle } from "react-icons/fc";
 import { AiOutlineGoogle, AiFillEyeInvisible } from "react-icons/ai";
 import Link from "next/link";
 import router, { useRouter } from "next/router";
-import Success from "../components/success";
+import Success from "../components/Success";
 export default function Enter(props) {
   const { user, username } = useContext(UserContext);
 
