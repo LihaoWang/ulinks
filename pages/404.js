@@ -2,18 +2,14 @@ import Link from "next/link";
 
 export default function Custom404() {
   return (
-    <main>
-      <h1>404 - That page does not seem to exist...</h1>
-      <iframe
-        src="https://giphy.com/embed/l2JehQ2GitHGdVG9y"
-        width="480"
-        height="362"
-        frameBorder="0"
-        allowFullScreen
-      ></iframe>
+    <div className="error-page">
+      <img src="404.svg" className="error-img"></img>
+      <h2 style={{ textAlign: "center" }}>
+        404 - That page does not seem to exist...
+      </h2>
       <Link href="/" passHref>
-        <button className="btn-blue">Go home</button>
+        <button className="submit-btn">Go home</button>
       </Link>
-    </main>
+    </div>
   );
 }

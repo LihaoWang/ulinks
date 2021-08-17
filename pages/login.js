@@ -8,27 +8,13 @@ import { useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
 import { AiFillEyeInvisible } from "react-icons/ai";
 import Link from "next/link";
+import Success from "../components/success";
 export default function Enter(props) {
   const { user, username } = useContext(UserContext);
 
   return (
     <main>
-      {user ? (
-        !username ? (
-          <UsernameForm />
-        ) : (
-          <div style={{ margin: "auto", width: "50%" }}>
-            <h2 style={{ alignSelf: "center" }}>
-              You've logged in successfully. Go to{" "}
-              <Link href="/admin" passHref>
-                dashboard
-              </Link>
-            </h2>
-          </div>
-        )
-      ) : (
-        <SignInForm />
-      )}
+      {user ? !username ? <UsernameForm /> : <Success /> : <SignInForm />}
     </main>
   );
 }

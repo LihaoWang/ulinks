@@ -9,28 +9,13 @@ import { FcGoogle } from "react-icons/fc";
 import { AiOutlineGoogle, AiFillEyeInvisible } from "react-icons/ai";
 import Link from "next/link";
 import router, { useRouter } from "next/router";
+import Success from "../components/success";
 export default function Enter(props) {
   const { user, username } = useContext(UserContext);
 
   return (
     <main>
-      {user ? (
-        !username ? (
-          <UsernameForm />
-        ) : (
-          <div className="sign-up-wrapper" style={{ alignItems: "center" }}>
-            <img width="50%" src="login.svg"></img>
-            <h2 style={{ alignSelf: "center" }}>
-              You've logged in successfully. Go to{" "}
-              <Link href="/admin" passHref>
-                dashboard
-              </Link>
-            </h2>
-          </div>
-        )
-      ) : (
-        <SignUpForm />
-      )}
+      {user ? !username ? <UsernameForm /> : <Success /> : <SignUpForm />}
     </main>
   );
 }
