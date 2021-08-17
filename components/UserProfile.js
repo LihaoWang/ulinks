@@ -18,6 +18,7 @@ export default function UserProfile({ user }) {
         <img
           src={user.photoURL}
           width="180px"
+          height="180px"
           className="profile-pic"
           alt="avatar"
         />

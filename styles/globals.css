@@ -309,9 +309,7 @@ img {
   }
   .profile-pic {
     width: 150px;
-  }
-  .profile-pic-admin {
-    width: 130px;
+    height: 150px;
   }
 
   .user-location {
