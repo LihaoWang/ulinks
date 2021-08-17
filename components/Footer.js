@@ -8,7 +8,7 @@ export default function Footer() {
       </a>
 
       <div className="footer-logos">
-        <a>
+        <a href="https://github.com/LihaoWang/ulinks">
           <IoLogoGithub className="footer-logo" />
         </a>
       </div>

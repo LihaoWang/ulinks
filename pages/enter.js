@@ -146,7 +146,7 @@ function UsernameForm() {
       username: formValue,
       photoURL: defaultAvatar,
       name: formValue,
-      links: [{ url: "example.com", title: "example", id: "example" }],
+      links: [{ url: "https://example.com", title: "example", id: "example" }],
       bgColor: { hex: "#cccccc" },
       location: "",
       intro: "",

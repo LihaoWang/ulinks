@@ -103,7 +103,7 @@ function Avatar({ post }) {
     >
       <img
         src={post.photoURL}
-        className="profile-pic"
+        className="profile-pic-admin"
         alt="avatar"
         width="120px"
       />

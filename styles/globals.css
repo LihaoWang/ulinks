@@ -266,7 +266,8 @@ img {
   transform: translateY(-90px);
   margin-bottom: 0px;
 }
-.profile-pic {
+.profile-pic,
+.profile-pic-admin {
   border-radius: 100px;
 }
 .user-intro {
@@ -309,6 +310,10 @@ img {
   .profile-pic {
     width: 150px;
   }
+  .profile-pic-admin {
+    width: 130px;
+  }
+
   .user-location {
     font-size: 18px;
   }
@@ -560,6 +565,15 @@ input[type="file"] {
 @media all and (max-width: 780px) {
   .bio-section-wrapper {
     width: 90%;
+  }
+  .form-input {
+    font-size: 18px;
+  }
+  .input-area {
+    font-size: 18px;
+  }
+  .form-wrapper {
+    padding: 20px 20px;
   }
 }
 /* footer */
