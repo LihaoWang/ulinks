@@ -2,6 +2,7 @@
 import AuthCheck from "../../components/AuthCheck";
 import LinksFeed from "../../components/LinksFeed";
 import Drag from "../../components/Drag";
+import Footer from "../../components/Footer";
 import ImageUploader from "../../components/ImageUploader";
 // import ColorPicker from "../../components/ColorPicker";
 import Image from "next/image";
@@ -34,13 +35,15 @@ export default function AdminPostsPage() {
       <AuthCheck>
         <h1>Dashboard</h1>
         <BioSection />
-        <button
-          style={{ alignSelf: "center" }}
-          className="submit-btn"
-          onClick={signOut}
-        >
-          Sign Out
-        </button>
+        <div style={{ paddingBottom: "150px" }}>
+          <button
+            style={{ alignSelf: "center" }}
+            className="submit-btn"
+            onClick={signOut}
+          >
+            Sign Out
+          </button>
+        </div>
         {/* <div className="add-new-btn">
           <button className="text-btn" onClick={handleAddNew}>
             {!addNew ? (
@@ -58,6 +61,7 @@ export default function AdminPostsPage() {
         </div>
         {addNew && <CreateNewPost />} */}
         {/* <LinksList /> */}
+        <Footer />
       </AuthCheck>
     </main>
   );
@@ -68,7 +72,7 @@ function BioSection() {
   const [post] = useDocumentData(postRef);
 
   return (
-    <main>
+    <main className="bio-section-wrapper">
       {post && (
         <>
           <section>
@@ -77,7 +81,9 @@ function BioSection() {
 
             <BioForm postRef={postRef} defaultValues={post} />
 
-            <h1 style={{ marginTop: "50px" }}>Manage your Links</h1>
+            <h1 style={{ marginTop: "50px", textAlign: "center" }}>
+              Manage your Links
+            </h1>
 
             <Drag post={post.links} />
             <div></div>
@@ -133,7 +139,7 @@ function BioForm({ defaultValues, postRef }) {
   };
 
   return (
-    <>
+    <div>
       <form className="form-wrapper" onSubmit={handleSubmit(updateBio)}>
         <div className="change-bg">
           <p className="form-title">Background Color</p>
@@ -176,7 +182,7 @@ function BioForm({ defaultValues, postRef }) {
           </button>
         </div>
       </form>
-    </>
+    </div>
   );
 }
 

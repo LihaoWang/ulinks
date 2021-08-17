@@ -14,7 +14,7 @@ export default function LinksFeedClean({ posts, admin }) {
 }
 function PostItem({ post, admin = false }) {
   return (
-    <div>
+    <div className="card-wrapper">
       <a href={post.url}>
         <div className="card">
           {/* <img className="arrow-invisible" width="25px" src="arrow.svg" /> */}

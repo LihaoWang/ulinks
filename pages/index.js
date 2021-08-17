@@ -4,6 +4,7 @@ import Image from "next/image";
 
 import toast from "react-hot-toast";
 import Link from "next/link";
+import Footer from "../components/Footer";
 export default function Home() {
   return (
     <div className="page-wrapper">
@@ -26,6 +27,7 @@ export default function Home() {
           </Link>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

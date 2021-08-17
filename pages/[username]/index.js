@@ -50,11 +50,8 @@ export default function UserProfilePage({ user }) {
           Create yours
         </a> */}
         <div className="footer-logos">
-          <a className="footer-logo">
-            <IoLogoGithub />
-          </a>
-          <a className="footer-logo">
-            <IoLogoLinkedin />
+          <a>
+            <IoLogoGithub className="footer-logo" />
           </a>
         </div>
       </div>
