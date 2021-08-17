@@ -10,7 +10,7 @@ export default function Home() {
     <div className="page-wrapper">
       <div className="hero">
         <div>
-          <img src="mock.png"></img>
+          <img src="mock.png" alt="mockup"></img>
         </div>
         <div className="hero-content">
           <p className="hero-title">One link for everything</p>
