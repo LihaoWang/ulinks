@@ -7,6 +7,8 @@ import debounce from "lodash.debounce";
 import { useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
 import { AiFillEyeInvisible } from "react-icons/ai";
+import { FaUserCircle } from "react-icons/fa";
+
 import Link from "next/link";
 import Success from "../components/Success";
 import Head from "next/head";
@@ -93,13 +95,13 @@ function SignInForm() {
         onClick={signInAnonymously}
         style={{ marginTop: "20px" }}
       >
-        <AiFillEyeInvisible
+        <FaUserCircle
           style={{
             marginRight: "10px",
             fontSize: "22px",
           }}
         />
-        Sign in Anonymously
+        Sign in as Guest
       </button>
       <span className="error" style={{ marginTop: "10px" }}>
         *if you chose to try it without an account, you won't be able to log

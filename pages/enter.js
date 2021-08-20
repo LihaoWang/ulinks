@@ -6,6 +6,7 @@ import { firestore } from "../lib/firebase";
 import debounce from "lodash.debounce";
 import { useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
+import { FaUserCircle } from "react-icons/fa";
 import { AiOutlineGoogle, AiFillEyeInvisible } from "react-icons/ai";
 import Link from "next/link";
 import router, { useRouter } from "next/router";
@@ -111,13 +112,13 @@ function SignUpForm() {
         onClick={signInAnonymously}
         style={{ marginTop: "20px" }}
       >
-        <AiFillEyeInvisible
+        <FaUserCircle
           style={{
             marginRight: "10px",
             fontSize: "22px",
           }}
         />
-        Sign in Anonymously
+        Sign in as Guest
       </button>
       <span className="error" style={{ marginTop: "10px" }}>
         *if you chose to try it without an account, you won't be able to log

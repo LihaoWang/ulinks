@@ -23,7 +23,7 @@ export default function Home() {
           </p>
           <div className="address-bar">
             <p>
-              https://ulinks.app/<b style={{ color: "#987cff" }}>yourname</b>
+              https://ulinks.cool/<b style={{ color: "#987cff" }}>yourname</b>
             </p>
           </div>
           <Link href="/enter" passHref>

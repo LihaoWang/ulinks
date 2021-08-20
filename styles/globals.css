@@ -138,14 +138,13 @@ textarea:focus {
   color: var(--gray-400);
 }
 .nav-button-2 {
-  padding: 5px;
   margin-right: 20px;
-  border-radius: 100px;
-  border: 2px solid var(--color-main);
+  /* border-radius: 100px;
+  border: 2px solid var(--color-main); */
 
   cursor: pointer;
   color: var(--color-main);
-  font-size: 25px;
+  font-size: 30px;
 
   background-color: transparent;
 
@@ -172,7 +171,7 @@ textarea:focus {
     font-size: 18px;
   }
   .nav-button-2 {
-    font-size: 20px;
+    font-size: 23px;
   }
 }
 
@@ -617,7 +616,8 @@ input[type="file"] {
   display: flex;
   flex-direction: column;
   margin: auto;
-  width: 50%;
+  width: 85%;
+  max-width: 1000px;
 }
 .btn-google {
   border: none;
