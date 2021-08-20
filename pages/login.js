@@ -103,14 +103,17 @@ function SignInForm() {
         />
         Sign in as Guest
       </button>
-      <span className="error" style={{ marginTop: "10px" }}>
-        *if you chose to try it without an account, you won't be able to log
-        back in or edit your page once signed out
-      </span>
+
       <p style={{ alignSelf: "center", marginTop: "30px", color: "black" }}>
         Not registered yet?{" "}
         <Link href={"/enter"} passHref>
           Create an account
+        </Link>
+      </p>
+      <p style={{ alignSelf: "center", marginTop: "0px", color: "black" }}>
+        Forgot password?{" "}
+        <Link href={"/passwordreset"} passHref>
+          Reset your password
         </Link>
       </p>
     </div>

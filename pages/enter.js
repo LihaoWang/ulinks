@@ -120,10 +120,7 @@ function SignUpForm() {
         />
         Sign in as Guest
       </button>
-      <span className="error" style={{ marginTop: "10px" }}>
-        *if you chose to try it without an account, you won't be able to log
-        back in or edit your page once signed out
-      </span>
+
       <p style={{ alignSelf: "center", marginTop: "30px" }}>
         Already have an account?{" "}
         <Link href={"/login"} passHref>

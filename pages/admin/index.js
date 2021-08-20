@@ -81,6 +81,7 @@ function BioSection() {
         <>
           <section>
             {/* <div className="avatar-background"></div> */}
+            {/* <p>https://ulinks.cool/{post.username}</p> */}
             <Avatar post={post} />
 
             <BioForm postRef={postRef} defaultValues={post} />
