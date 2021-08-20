@@ -10,7 +10,7 @@ export default function NavBar({}) {
     <nav>
       <div className="navbar">
         <Link href="/" passHref>
-          <div className="nav-logo">ulinks</div>
+          <div className="nav-logo">Ulinks</div>
         </Link>
 
         {username && (

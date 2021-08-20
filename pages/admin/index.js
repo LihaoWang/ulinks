@@ -5,7 +5,7 @@ import Drag from "../../components/Drag";
 import Footer from "../../components/Footer";
 import ImageUploader from "../../components/ImageUploader";
 // import ColorPicker from "../../components/ColorPicker";
-import Image from "next/image";
+import Head from "next/head";
 import { TwitterPicker } from "react-color";
 import { UserContext } from "../../lib/context";
 import { firestore, auth, serverTimestamp } from "../../lib/firebase";
@@ -31,13 +31,17 @@ export default function AdminPostsPage() {
     await auth.signOut();
   }
   return (
-    <main className="admin-page">
+    <div className="admin-page">
+      <Head>
+        <title>Dashboard</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <AuthCheck>
         <h1>Dashboard</h1>
         <BioSection />
         <div style={{ paddingBottom: "150px" }}>
           <button
-            style={{ alignSelf: "center" }}
+            style={{ alignSelf: "center", backgroundColor: "#de0000" }}
             className="submit-btn"
             onClick={signOut}
           >
@@ -63,7 +67,7 @@ export default function AdminPostsPage() {
         {/* <LinksList /> */}
         <Footer />
       </AuthCheck>
-    </main>
+    </div>
   );
 }
 function BioSection() {
@@ -136,7 +140,7 @@ function BioForm({ defaultValues, postRef }) {
 
     reset({ name, location, intro, bgColor });
 
-    toast.success("Post updated successfully!");
+    toast.success("Updated successfully!");
   };
 
   return (

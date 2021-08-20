@@ -8,6 +8,10 @@ import Footer from "../components/Footer";
 export default function Home() {
   return (
     <div className="page-wrapper">
+      <Head>
+        <title>Ulinks</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <div className="hero">
         <div>
           <img src="mock.png" alt="mockup"></img>

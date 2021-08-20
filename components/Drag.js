@@ -6,6 +6,7 @@ import { useForm, useFieldArray, Controller } from "react-hook-form";
 import kebabCase from "lodash.kebabcase";
 import { AiFillPlusCircle, AiFillCloseCircle } from "react-icons/ai";
 import normalizeUrl from "normalize-url";
+import toast from "react-hot-toast";
 export default function Drag({ post }) {
   const [links, updateLinks] = useState(post);
   const [addNew, setAddNew] = useState(false);
@@ -98,6 +99,7 @@ function AddNewForm({ updateLinks }) {
       return newState;
     });
     reset({ defaultValues: { title: "", url: "" } });
+    toast.success("Link created!");
   };
 
   return (
@@ -165,6 +167,7 @@ function EditForm({ defaultValues, index, updateLinks }) {
       newLinks[index].url = normalizeUrl(values.url, { forceHttps: true });
       return newLinks;
     });
+    toast.success("Link updated successfully!");
   };
   const deleteLink = () => {
     updateLinks((prev) => {
@@ -172,6 +175,7 @@ function EditForm({ defaultValues, index, updateLinks }) {
       newLinks.splice(index, 1);
       return newLinks;
     });
+    toast.success("Link deleted successfully!");
   };
 
   return (

@@ -9,14 +9,19 @@ import { FcGoogle } from "react-icons/fc";
 import { AiOutlineGoogle, AiFillEyeInvisible } from "react-icons/ai";
 import Link from "next/link";
 import router, { useRouter } from "next/router";
+import Head from "next/head";
 import Success from "../components/Success";
 export default function Enter(props) {
   const { user, username } = useContext(UserContext);
 
   return (
-    <main>
+    <div>
+      <Head>
+        <title>Login</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       {user ? !username ? <UsernameForm /> : <Success /> : <SignUpForm />}
-    </main>
+    </div>
   );
 }
 
@@ -114,7 +119,10 @@ function SignUpForm() {
         />
         Sign in Anonymously
       </button>
-
+      <span className="error" style={{ marginTop: "10px" }}>
+        *if you chose to try it without an account, you won't be able to log
+        back in or edit your page once signed out
+      </span>
       <p style={{ alignSelf: "center", marginTop: "30px" }}>
         Already have an account?{" "}
         <Link href={"/login"} passHref>

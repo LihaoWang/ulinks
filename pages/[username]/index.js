@@ -8,6 +8,8 @@ import {
   IoLogoWechat,
   IoLogoTiktok,
 } from "react-icons/io5";
+
+import Head from "next/head";
 export async function getServerSideProps({ query }) {
   const { username } = query;
   const userDoc = await getUserWithUsername(username);
@@ -37,7 +39,11 @@ export async function getServerSideProps({ query }) {
 
 export default function UserProfilePage({ user }) {
   return (
-    <main className="user-page">
+    <div className="user-page">
+      <Head>
+        <title>{user.name}</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <UserProfile user={user} />
       <div className="links-feed-clean">
         <LinksFeedClean posts={user.links} />
@@ -55,6 +61,6 @@ export default function UserProfilePage({ user }) {
           </a>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

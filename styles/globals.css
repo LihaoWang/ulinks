@@ -1,16 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap");
 :root {
-  --color-bg: #fafafa;
-  --color-text: #08090a;
-  --color-blue: #3b49df;
-  --color-red: #df3b3b;
-  --color-green: #3bdf72;
-  --color-gray: #b5bdc4;
-  --primary-color: #474554;
-  --primary-color-shade: #353344;
-  --bg-color: #fafafa;
-  --grey-clor: #898989;
   --color-main: #987cff;
   --color-main-shade: #bba8ff;
   --gray-100: #fafafa;
@@ -18,9 +8,7 @@
   --gray-300: #cccccc;
   --gray-400: #999999;
 }
-/* ::-webkit-file-upload-button {
-  display: none;
-} */
+
 * {
   box-sizing: border-box;
 }
@@ -30,7 +18,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Inter", sans-serif;
-  background-color: var(--color-bg);
+  background-color: var(--gray-100);
 }
 .user-page {
   min-height: 95vh;
@@ -124,6 +112,7 @@ textarea:focus {
   justify-content: flex-start;
   cursor: pointer;
   font-size: 30px;
+  font-weight: 500;
 }
 .nav-buttons {
   display: flex;
@@ -177,7 +166,7 @@ textarea:focus {
     height: 60px;
   }
   .nav-logo {
-    font-size: 25px;
+    font-size: 22px;
   }
   .nav-button {
     font-size: 18px;
@@ -280,7 +269,7 @@ img {
 .user-location {
   margin-top: 5px;
   font-size: 20px;
-  color: var(--grey-clor);
+  color: var(--gray-400);
 }
 .social-icons-row {
   display: flex;
@@ -288,7 +277,7 @@ img {
   margin-top: 25px;
 }
 .social-icon {
-  color: var(--grey-clor);
+  color: var(--gray-400);
   font-size: 25px;
   margin: 0px 7px;
 }
@@ -583,14 +572,15 @@ input[type="file"] {
   margin: auto;
   width: 85%;
   max-width: 1000px;
-  border-top: solid 1px var(--grey-clor);
+  border-top: solid 1px var(--gray-400);
   padding-top: 0px;
   /* footer position*/
   position: absolute;
   left: 0;
   bottom: 0;
   right: 0;
-  height: 100px;
+  height: 80px;
+  min-height: 5vh;
 }
 .footer-text {
   color: var(--gray-400);
