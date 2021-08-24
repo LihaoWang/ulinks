@@ -5,6 +5,7 @@ import Image from "next/image";
 import toast from "react-hot-toast";
 import Link from "next/link";
 import Footer from "../components/Footer";
+import HoverCard from "../components/HoverCard";
 export default function Home() {
   return (
     <div className="page-wrapper">
@@ -13,9 +14,8 @@ export default function Home() {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <div className="hero">
-        <div>
-          <img src="mock.png" alt="mockup"></img>
-        </div>
+        <img className="hero-img" src="mockup.png" alt="mockup"></img>
+
         <div className="hero-content">
           <p className="hero-title">One link for everything</p>
           <p className="hero-subtitle">
@@ -23,7 +23,7 @@ export default function Home() {
           </p>
           <div className="address-bar">
             <p>
-              https://ulinks.cool/<b style={{ color: "#987cff" }}>yourname</b>
+              https://ulinks.cool/<b style={{ color: "#987cff" }}>name</b>
             </p>
           </div>
           <Link href="/enter" passHref>
@@ -31,6 +31,9 @@ export default function Home() {
           </Link>
         </div>
       </div>
+      {/* <div style={{ display: "block", marginBottom: "100px" }}>
+        <HoverCard />
+      </div> */}
       <Footer />
     </div>
   );
