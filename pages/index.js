@@ -14,8 +14,9 @@ export default function Home() {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <div className="hero">
-        <img className="hero-img" src="mockup.png" alt="mockup"></img>
-
+        <div>
+          <img className="hero-img" src="mockup.png" alt="mockup"></img>
+        </div>
         <div className="hero-content">
           <p className="hero-title">One link for everything</p>
           <p className="hero-subtitle">
