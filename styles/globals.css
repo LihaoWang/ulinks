@@ -235,6 +235,15 @@ textarea:focus {
   .hero > * + * {
     margin-left: 0;
   }
+  .hero-title {
+    font-size: 30px;
+  }
+  .hero-subtitle {
+    font-size: 20px;
+  }
+  .address-bar {
+    font-size: 20px;
+  }
 }
 
 img {
