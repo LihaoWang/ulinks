@@ -8,53 +8,55 @@ import {
   IoLogoWechat,
   IoLogoTiktok,
 } from "react-icons/io5";
-
+import { useRouter } from "next/router";
 import Head from "next/head";
-export async function getServerSideProps({ query }) {
-  const { username } = query;
-  const userDoc = await getUserWithUsername(username);
+import { useEffect, useState } from "react";
 
-  if (!userDoc) {
-    return {
-      notFound: true,
-    };
-  }
-
-  let user = null;
-  // let posts = null;
-
-  if (userDoc) {
-    user = userDoc.data();
-    // const postsQuery = userDoc.ref.collection("links");
-    // .where("published", "==", true)
-    // .limit(5);
-
-    // posts = (await postsQuery.get()).docs.map(postToJSON);
-  }
-
+export async function getServerSideProps(context) {
   return {
-    props: { user },
+    props: {}, // will be passed to the page component as props
   };
 }
+async function getUser(username) {
+  return await getUserWithUsername(username);
+}
 
-export default function UserProfilePage({ user }) {
+export default function UserProfilePage() {
+  const [userState, setUserState] = useState();
+  const router = useRouter();
+  useEffect(() => {
+    const { username } = router.query;
+
+    if (username) {
+      getUser(username).then((userDoc) => {
+        const user = userDoc.data();
+        setUserState(user);
+      });
+    }
+  }, []);
+
   return (
     <div className="user-page">
-      <Head>
-        <title>{user.name}</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </Head>
-      <UserProfile user={user} />
-      <div className="links-feed-clean">
-        <LinksFeedClean posts={user.links} />
-      </div>
+      {userState && (
+        <Head>
+          <title>{userState.name}</title>
+          <meta
+            name="viewport"
+            content="initial-scale=1.0, width=device-width"
+          />
+        </Head>
+      )}
+
+      {userState && <UserProfile user={userState} />}
+      {userState && (
+        <div className="links-feed-clean">
+          <LinksFeedClean posts={userState.links} />
+        </div>
+      )}
       <div className="footer">
         <a className="footer-text" href="#">
           Ulinks
         </a>
-        {/* <a className="footer-text" href="#">
-          Create yours
-        </a> */}
         <div className="footer-logos">
           <a>
             <IoLogoGithub className="footer-logo" />
