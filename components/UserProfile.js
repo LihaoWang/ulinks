@@ -15,13 +15,9 @@ export default function UserProfile({ user }) {
         style={{ backgroundColor: user.bgColor.hex }}
       ></div>
       <div className="user-bio-section">
-        <img
-          src={user.photoURL}
-          width="180px"
-          height="180px"
-          className="profile-pic"
-          alt="avatar"
-        />
+        <div>
+          <img src={user.photoURL} className="profile-pic" alt="avatar" />
+        </div>
 
         {/* <div className="social-icons-row">
           <a className="social-icon" href="#">

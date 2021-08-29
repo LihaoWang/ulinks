@@ -267,8 +267,17 @@ img {
   transform: translateY(-90px);
   margin-bottom: 0px;
 }
-.profile-pic,
+.profile-pic {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 100px;
+}
+
 .profile-pic-admin {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
   border-radius: 100px;
 }
 .user-intro {

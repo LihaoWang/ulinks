@@ -11,8 +11,10 @@ export default function ImageUploader() {
   const uploadFile = async (e) => {
     // Get the file
     const file = Array.from(e.target.files)[0];
+
     const extension = file.type.split("/")[1];
     const postRef = firestore.collection("users").doc(auth.currentUser.uid);
+
     // Makes reference to the storage bucket location
     const ref = storage.ref(
       `avatars/${auth.currentUser.uid}/avatar.${extension}`
@@ -61,7 +63,7 @@ export default function ImageUploader() {
             <input
               type="file"
               onChange={uploadFile}
-              accept="image/x-png,image/gif,image/jpeg"
+              accept="image/x-png,image/jpeg"
             />
           </label>
         </>

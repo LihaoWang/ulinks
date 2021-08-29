@@ -110,8 +110,8 @@ function Avatar({ post }) {
         src={post.photoURL}
         className="profile-pic-admin"
         alt="avatar"
-        width="120px"
-        height="120px"
+        // width="120px"
+        // height="120px"
       />
       <ImageUploader />
     </div>
