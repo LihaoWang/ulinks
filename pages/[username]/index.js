@@ -29,8 +29,12 @@ export default function UserProfilePage() {
 
     if (username) {
       getUser(username).then((userDoc) => {
-        const user = userDoc.data();
-        setUserState(user);
+        if (userDoc) {
+          const user = userDoc.data();
+          setUserState(user);
+        } else {
+          router.push("404");
+        }
       });
     }
   }, []);

@@ -1,11 +1,8 @@
 import { fromPairs } from "lodash";
 import Head from "next/head";
-import Image from "next/image";
-
-import toast from "react-hot-toast";
 import Link from "next/link";
 import Footer from "../components/Footer";
-import HoverCard from "../components/HoverCard";
+
 export default function Home() {
   return (
     <div className="page-wrapper">
@@ -32,9 +29,7 @@ export default function Home() {
           </Link>
         </div>
       </div>
-      {/* <div style={{ display: "block", marginBottom: "100px" }}>
-        <HoverCard />
-      </div> */}
+
       <Footer />
     </div>
   );

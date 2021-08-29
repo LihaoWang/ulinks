@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { firestore, auth } from "../lib/firebase";
 import { FiEdit } from "react-icons/fi";
-import { useForm, useFieldArray, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import kebabCase from "lodash.kebabcase";
 import { AiFillPlusCircle, AiFillCloseCircle } from "react-icons/ai";
 import normalizeUrl from "normalize-url";
