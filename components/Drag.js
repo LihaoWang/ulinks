@@ -16,6 +16,7 @@ export default function Drag({ post }) {
     postRef.update({
       links: links,
     });
+
     // eslint-disable-next-line
   }, [links]);
   async function handleOnDragEnd(result) {
@@ -92,7 +93,7 @@ function AddNewForm({ updateLinks }) {
     var newItem = data;
     newItem.id = id;
     newItem.url = normalizeUrl(newItem.url, { forceHttps: true });
-    console.log(newItem);
+
     updateLinks((prev) => {
       var newState = [...prev];
       newState.push(newItem);

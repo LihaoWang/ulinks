@@ -229,7 +229,7 @@ function UsernameMessage({ username, isValid, loading }) {
     return (
       <>
         <p className="text-success">
-          Your unique address will be <em>ulinks.app/{username}</em>
+          Your unique address will be <em>ulinks.cool/{username}</em>
           <br />
         </p>
 

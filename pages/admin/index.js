@@ -124,7 +124,6 @@ function BioForm({ defaultValues, postRef }) {
     defaultValues,
     mode: "onChange",
   });
-  console.log(defaultValues);
 
   const { isValid, isDirty } = formState;
   const handleChangeComplete = (color) => {

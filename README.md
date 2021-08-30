@@ -1,34 +1,82 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Ulinks
+**Demo:** https://www.ulinks.cool/
 
-First, run the development server:
+Ulinks is bio link platform where users could share their links, products, videos, and more on one page.
+
+![ulinks1.png](https://i.loli.net/2021/08/30/MW5HoIFzwUAkB4Q.png)
+![ulinks2.png](https://i.loli.net/2021/08/30/lqKwtHGSMoEsW6b.png)
+![ulinks3.png](https://i.loli.net/2021/08/30/pKNbngjSUZxoycL.png)
+## Tech Stack
+
+Next.js, Firebase, CSS
+
+
+
+  
+## Features
+
+- User sign up and log in (Email and password, Google, Guest)
+- Unique user url path (dynamic routes)
+- Basic page customization
+- Add HTML videos/music **(WIP)**
+- Resize avatar **(WIP)**
+
+  
+## Run Locally
+
+Clone the project
 
 ```bash
-npm run dev
-# or
-yarn dev
+  git clone https://github.com/LihaoWang/ulinks
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Go to the project directory
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```bash
+  cd ulinks
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Install dependencies
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```bash
+  npm install
+```
 
-## Learn More
+Start the server
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+  npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+  
+## Environment Variables
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+To run this project, you will need to add the following environment variables to your .env.local file
 
-## Deploy on Vercel
+`NEXT_PUBLIC_FIREBASE_API_KEY`
+`NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN`
+`NEXT_PUBLIC_FIREBASE_PROJECT_ID`
+`NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET`
+`NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID`
+`NEXT_PUBLIC_FIREBASE_APP_ID`
+`NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+  
+## About me
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://leowang.codes)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/lihao-wang-3ab84115b/)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+  
+## Contributing
+
+Contributions and pull requests are always welcome!
+
+For major changes, please open an issue first to discuss what you would like to change.
+
+  
+## License
+
+[GNU GPLv3](https://choosealicense.com/licenses/gpl-3.0/)
+
+  
