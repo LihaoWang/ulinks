@@ -4,8 +4,7 @@ import Navbar from "../components/Navbar";
 import { Toaster } from "react-hot-toast";
 import { UserContext } from "../lib/context";
 import { useEffect, useState } from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { firestore, auth } from "../lib/firebase";
+
 import { useUserData } from "../lib/hooks";
 import Loader from "../components/Loader";
 import Router from "next/router";
@@ -13,11 +12,9 @@ function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     const start = () => {
-      console.log("start");
       setLoading(true);
     };
     const end = () => {
-      console.log("findished");
       setLoading(false);
     };
     Router.events.on("routeChangeStart", start);

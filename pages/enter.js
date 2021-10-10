@@ -147,7 +147,7 @@ function UsernameForm() {
     // Commit both docs together as a batch write.
     const batch = firestore.batch();
     const defaultAvatar =
-      "https://firebasestorage.googleapis.com/v0/b/ulinks-app.appspot.com/o/default-avatar.png?alt=media&token=b4424698-af50-42fd-bf6a-e0d12af33160";
+      "https://firebasestorage.googleapis.com/v0/b/ulinks-app-47c8b.appspot.com/o/defaultAvatar.png?alt=media&token=fd1c446b-8735-459c-9b60-ff0d649d490d";
     batch.set(userDoc, {
       username: formValue,
       photoURL: defaultAvatar,
